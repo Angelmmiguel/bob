@@ -1,0 +1,6 @@
+twitter:
+  key: YOUR_KEY
+  secret: YOUR_SECRET
+  token: YOUR_TOKEN
+  token_secret: YOUR_TOKEN_SECRET
+  

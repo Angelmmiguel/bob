@@ -1,0 +1,5 @@
+# Secret token
+config/config.yml
+
+# Seed
+config/seed.yml

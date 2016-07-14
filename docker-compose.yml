@@ -1,0 +1,12 @@
+version: '2'
+services:
+  elasticsearch:
+    image: bitnami/elasticsearch:latest
+  app:
+    build: .
+    image: bob:latest
+    command: irb
+    volumes:
+      - ./:/app
+    links:
+      - elasticsearch:elasticsearch
