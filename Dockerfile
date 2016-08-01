@@ -31,6 +31,4 @@ WORKDIR /app
 
 RUN bundle install
 
-COPY . /app
-
 CMD ["irb"]

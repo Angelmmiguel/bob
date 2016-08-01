@@ -1,5 +1,5 @@
 # Secret token
-config/config.yml
+config/twitter.yml
 
 # Seed
 config/seed.yml
