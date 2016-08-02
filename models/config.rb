@@ -23,4 +23,4 @@ class Config
 end
 
 # Load config as global
-CONFIG = Config.instance
+$config = Config.instance
