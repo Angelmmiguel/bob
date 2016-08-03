@@ -55,6 +55,21 @@ EOF
     puts "\n#{Rainbow('Bye bye human!').magenta}"
   end
 
+  # Operations
+  # -----------------------
+
+  def remaining_operations(num)
+    puts "\nRemaining operations: \t#{Rainbow(num.to_s).green}"
+  end
+
+  def start_operation(name)
+    puts "\nStarting: \t#{Rainbow(name).green}"
+  end
+
+  def operation_result(result)
+    puts "Results: \t#{Rainbow(result).green}"
+  end
+
   # Make new private!
   private_class_method :new
 
