@@ -8,6 +8,10 @@ gem 'twitter', '~> 5.16'
 
 # For logging
 gem 'rainbow', '~> 2.1'
+gem 'tty-prompt'
+gem 'tty-progressbar'
+gem 'tty-spinner'
+gem 'terminal-table', '~> 1.6'
 
 # Development
 group :development do

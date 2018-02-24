@@ -1,12 +1,12 @@
 version: '2'
 services:
   elasticsearch:
-    image: bitnami/elasticsearch:latest
-  app:
+    image: elasticsearch:5.5.1-alpine
+  bob:
     build: .
     image: bob:latest
-    command: irb
+    command: ruby init.rb
     volumes:
       - ./:/app
-    links:
-      - elasticsearch:elasticsearch
+    depends_on:
+      - elasticsearch

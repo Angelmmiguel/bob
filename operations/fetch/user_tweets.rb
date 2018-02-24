@@ -1,3 +1,6 @@
+require 'rainbow'
+require 'terminal-table'
+
 #
 # Fetch tweets from an user
 #
@@ -15,6 +18,14 @@ class UserTweets < Operation
   def perform
     tweets = $clients.twitter.user_timeline(@user)
     @num_tweets = tweets.size
+
+    # Detect new entrypoints
+    non_retweets = tweets.select { |t| !t.retweet? }
+    hashtags = non_retweets.map(&:hashtags).flatten.group_by(&:text)
+    users = non_retweets.map(&:user_mentions).flatten.group_by(&:screen_name)
+    urls = non_retweets.map(&:urls).flatten.group_by { |u| u.url.to_s }
+
+    # Index tweets
     tweets.each do |tweet|
       $clients.elasticsearch.index(
         index: 'tweets',

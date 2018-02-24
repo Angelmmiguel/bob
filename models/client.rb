@@ -24,6 +24,22 @@ class Clients
     @@instance
   end
 
+  def wait_for_elastic_search
+    retries = 30
+    begin
+      sleep 1
+      elasticsearch.cluster.health
+      true
+    rescue Faraday::ConnectionFailed
+      retries -= 1
+      if retries > 0
+        retry
+      else
+        false
+      end
+    end
+  end
+
   # Make new private!
   private_class_method :new
 end
